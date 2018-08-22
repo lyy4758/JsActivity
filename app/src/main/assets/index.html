@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function doAlert() {
+                alert("hello!");
+            }
+            function doConfirm() {
+                confirm("are you sure? ");
+            }
+            function doPrompt() {
+                var val = prompt("what you name?");
+                if(val) {
+                    alert("you name is:" + val);
+                }
+            }
+
+            function getList() {
+                var list = window.bridge.getList();
+                var result = document.getElementById("result");
+                for (var i = 0;i < list.size();i++) {
+                    var div = document.createElement("div");
+                    div.innerHTML = list.get(i).toString();
+                    result.appendChild(div);
+                }
+            }
+
+            function success(msg) {
+                alert(msg);
+            }
+        </script>
+    </head>
+    <body background="black">
+        <input type="button" value="alert" onclick="doAlert()"/><br/>
+        <input type="button" value="confirm" onclick="doConfirm()"/><br/>
+        <input type="button" value="prompt" onclick="doPrompt()"/><br/>
+        <input type="button" value="getList" onclick="getList()"/><br/>
+        <div id="result"></div>
+    </body>
+
+</html>
